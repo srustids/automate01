@@ -49,7 +49,19 @@ echo "--- Total Disk Usage ---"
 df -hP | awk 'NR==1{printf "%-30s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n", $1,$2,$3,$4,$5,$6; next} {printf "%-30s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n", $1,$2,$3,$4,$5,$6}'
 echo ""
 
+echo ""
+echo "Top 5 Processes by CPU Usage:"
+ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6
+
+echo ""
+echo "Top 5 Processes by Memory Usage:"
+ps -eo pid,comm,%mem --sort=-%mem | head -n 6
+
 
 echo "--------------------------------------------------"
 echo "End of Report"
 echo "--------------------------------------------------"
+
+
+
+
